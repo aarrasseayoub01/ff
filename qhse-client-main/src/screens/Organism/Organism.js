@@ -461,7 +461,7 @@ export default function Organism(props) {
               </h2>
             </div>
             <div className="itemB">
-              <Table>
+              <Table striped highlightOnHover>
                 <thead>
                   <tr>
                     <th className="text-center" scope="col-4">
@@ -519,7 +519,7 @@ export default function Organism(props) {
               <h2 onClick={() => navigate("../../zones")}>Les zones:</h2>
             </div>
             <div className="itemB">
-              <Table>
+              <Table striped highlightOnHover>
                 <thead>
                   <tr>
                     <th className="text-center" scope="col-4">
@@ -579,7 +579,7 @@ export default function Organism(props) {
               </h2>
             </div>
             <div className="itemB">
-              <Table>
+              <Table striped highlightOnHover>
                 <thead>
                   <tr>
                     <th className="text-center" scope="col-4">
