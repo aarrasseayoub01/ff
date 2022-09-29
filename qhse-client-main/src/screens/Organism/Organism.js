@@ -150,7 +150,6 @@ export default function Organism(props) {
     fetchProds();
     const fetchRaws = async () => {
       const res = await axios.get("http://localhost:5000/api/raw/a/" + org._id);
-      console.log("http://localhost:5000/api/raw/a/" + org._id);
       setRaws(res.data);
     };
     fetchRaws();

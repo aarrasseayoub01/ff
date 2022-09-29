@@ -36,7 +36,6 @@ export default function App() {
     return <Organism orgId={id} />;
   }
   function HandleRaw() {
-    console.log(useParams());
     let { name } = useParams();
     let { isEdit } = useParams();
 

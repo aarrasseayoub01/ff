@@ -25,10 +25,10 @@ export default function Navbar(props) {
       <nav className="navbar navbar-expand-lg navbar-light justify-content-between">
         <div className="navbar-brand">
           {props.in === true && (
-            <span class="container1 nav-item">
-              <span class="checkbox-container">
-                <input class="checkbox-trigger" type="checkbox" />
-                <span class="menu-content">
+            <span className="container1 nav-item">
+              <span className="checkbox-container">
+                <input className="checkbox-trigger" type="checkbox" />
+                <span className="menu-content">
                   <ul>
                     <li onClick={() => navigate("/")}>Tableau de bord</li>
                     <li onClick={() => navigate("/products")}>Produits</li>
@@ -46,7 +46,7 @@ export default function Navbar(props) {
                       Equipements
                     </li>
                   </ul>
-                  <span class="hamburger-menu"></span>
+                  <span className="hamburger-menu"></span>
                 </span>
               </span>
             </span>
