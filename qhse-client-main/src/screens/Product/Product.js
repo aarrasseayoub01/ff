@@ -1,4 +1,4 @@
-import { MenuItem, Pagination, TextField } from "@mui/material";
+import { Pagination, TextField } from "@mui/material";
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
@@ -45,8 +45,6 @@ const Product = (props) => {
   });
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [zones, setZones] = useState();
-  const [batiments, setBatiments] = useState();
 
   function handleImagePage(event, value) {
     setImagePage(value);
@@ -125,6 +123,8 @@ const Product = (props) => {
         break;
       case "fds":
         await axios.get("http://localhost:5000/api/download/" + editValues.fds);
+        break;
+      default:
     }
   };
   const handleUploadFile = async (e) => {
@@ -147,6 +147,8 @@ const Product = (props) => {
         break;
       case "fds":
         setEditValues({ ...product, fds: fileName });
+        break;
+      default:
     }
     setLoading(false);
   };
@@ -220,21 +222,7 @@ const Product = (props) => {
       setProductOrganism(res.data);
     };
     fetchMyOrg();
-    const fetchZones = async () => {
-      const res = await axios.get(
-        "http://localhost:5000/api/zone/z/" + org._id
-      );
-      setZones(res.data);
-    };
-    fetchZones();
-    const fetchBatiments = async () => {
-      const res = await axios.get(
-        "http://localhost:5000/api/zone/b/" + org._id
-      );
-      setBatiments(res.data);
-    };
-    fetchBatiments();
-  }, [props.productId]);
+  }, [props.productId, org._id]);
   const mappedUserEtiquettes =
     editValues.userEtiquettes &&
     Object.keys(editValues.userEtiquettes).map((key, value) => {
@@ -263,18 +251,6 @@ const Product = (props) => {
         </div>
       );
     });
-  const selectZones =
-    zones &&
-    zones.map((zone) => (
-      <MenuItem value={zone.code}>{zone.code + " (zone)"}</MenuItem>
-    ));
-  const selectBatiments =
-    batiments &&
-    batiments.map((batiment) => (
-      <MenuItem value={batiment.code}>{batiment.code + " (bâtiment)"}</MenuItem>
-    ));
-  const allSites =
-    selectZones && selectBatiments && selectZones.concat(selectBatiments);
 
   const thisProductIndex =
     orgProducts && orgProducts.findIndex((x) => x._id === props.productId);
@@ -311,6 +287,7 @@ const Product = (props) => {
                   )}
                   <img
                     className="wrapping-image"
+                    alt="product"
                     src={
                       "http://localhost:5000/images/" + picture[imagePage - 1]
                     }
@@ -583,31 +560,16 @@ const Product = (props) => {
                     </div>
                     <div className="d-flex justify-content-start">
                       <h5 className="p-3">Site de production: </h5>
-                      {/* <TextField
-                                    hiddenLabel
-                                    className="col-12 col-sm-6 col-md-4 col-lg-4"
-                                    id="filled-hidden-label-normal"
-                                    value={editValues.site}
-                                    name='site'
-                                    variant="filled"
-                                    onChange={handleChange}
-                                /> */}
+
                       <TextField
+                        hiddenLabel
                         className="col-12 col-sm-6 col-md-4 col-lg-4"
                         id="filled-hidden-label-normal"
-                        label="Zone"
                         variant="filled"
-                        select
                         value={editValues.site}
                         name="site"
                         onChange={handleChange}
-                      >
-                        {allSites ? (
-                          allSites
-                        ) : (
-                          <MenuItem value={"Empty"}>Empty</MenuItem>
-                        )}
-                      </TextField>
+                      />
                     </div>
                     <div className="d-flex justify-content-start">
                       <h5 className="p-3">Organisme: </h5>
@@ -737,6 +699,7 @@ const Product = (props) => {
     <div className="text-center d-flex flex-column justify-content-center align-items-center">
       <h3 className="m-3">Le produit est supprimé ou n'existe pas !</h3>
       <img
+        alt="Supprimé "
         src="https://i.ibb.co/G3V62Xt/image-2022-08-21-210432788.png"
         className="m-5 image404"
       />

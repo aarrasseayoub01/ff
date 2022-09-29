@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button } from "react-bootstrap";
@@ -183,7 +183,7 @@ export default function Organism(props) {
       setEquips(res.data);
     };
     fetchEquips();
-  }, [props.orgId]);
+  }, [props.orgId, user, org._id]);
   const fournisseurs =
     fours !== undefined &&
     fours.slice(0, 3).map((x, i) => {

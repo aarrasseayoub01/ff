@@ -1,9 +1,7 @@
-import React, { useRef, useContext } from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../Context/authContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import { Button } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
 import "./Navbar.css";
 
 export default function Navbar(props) {
@@ -53,6 +51,7 @@ export default function Navbar(props) {
           )}
           <a href="/main">
             <img
+              alt="logo"
               src="http://localhost:5000/images/logo1.jpeg"
               style={{
                 maxHeight: "70px",
@@ -68,15 +67,23 @@ export default function Navbar(props) {
           <ul className="navbar-nav">
             {org !== null && org !== undefined && (
               <li className="nav-item">
-                <a className="nav-link sortable" onClick={handleFinish}>
+                <div
+                  className="nav-link sortable"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleFinish}
+                >
                   Terminer
-                </a>
+                </div>
               </li>
             )}
             <li className="nav-item">
-              <a className="nav-link sortable" onClick={handleLogout}>
+              <div
+                className="nav-link sortable"
+                style={{ cursor: "pointer" }}
+                onClick={handleLogout}
+              >
                 Déconnecter
-              </a>
+              </div>
             </li>
           </ul>
         )}

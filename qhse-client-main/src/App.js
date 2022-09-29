@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import NewOrganism from "./screens/NewOrganism/NewOrganism";
 import Organism from "./screens/Organism/Organism";
 import Fournisseurs from "./screens/Fournisseurs/Fournisseurs";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import { AuthContext } from "./Context/authContext";
 import Organisms from "./screens/Organisms/Organisms";
 import Products from "./screens/Products/Products";
@@ -13,7 +13,6 @@ import RawRecap from "./screens/RawRecap/RawRecap";
 import Main from "./screens/Main/Main";
 import Raw from "./screens/Raw/Raw";
 import "./App.css";
-import { Link, useNavigate } from "react-router-dom";
 import NewProduct from "./screens/NewProduct/NewProduct";
 import NewRaw from "./screens/NewRaw/NewRaw";
 import Product from "./screens/Product/Product";
@@ -54,7 +53,6 @@ export default function App() {
     let { id } = useParams();
     return <Zone zoneId={id} />;
   }
-  const navigate = useNavigate();
 
   return (
     <>

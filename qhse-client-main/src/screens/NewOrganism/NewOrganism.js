@@ -1,5 +1,5 @@
 import React, { useRef, useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button } from "react-bootstrap";
@@ -56,6 +56,7 @@ export default function NewOrganism() {
         <div className="row">
           <div className=" col-9 col-sm-12 col-md-5 col-lg-5 d-flex b justify-content-center align-items-center row">
             <img
+              alt="org"
               className="col-12"
               src="https://media.istockphoto.com/photos/imge-of-mint-picture-id619514634?k=20&m=619514634&s=612x612&w=0&h=0qd6aFtslmii-nfCiBxxIBQmAOqVVwm_iRq_vwYLAWw="
               height="328"

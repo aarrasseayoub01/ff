@@ -17,7 +17,6 @@ import {
 import { BiUpload } from "react-icons/bi";
 import axios from "axios";
 import { AuthContext } from "../../Context/authContext";
-import { AiFillCaretUp } from "react-icons/ai";
 import Zone from "../../components/Zone/Zone";
 import { ObjectId } from "bson";
 import { Button } from "react-bootstrap";
